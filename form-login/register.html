@@ -74,7 +74,7 @@
 
                                     <div class="form-check d-flex justify-content-center mb-5">
                                         <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                                        <label class="form-check-label"
+                                        <label class="form-check-label">
                                             I agree all statements in <a href="#!">Terms of service</a>
                                         </label>
                                     </div>
@@ -105,16 +105,25 @@
       let email;
       let password;
       let comfirmPassword;
-      let listUsers;
+      let listUsers = JSON.parse(window.localStorage.getItem('list_user')) ;
 
  function checkValidate(){
  name=document.getElementById('name').value;
+     email = document.getElementById('email').value;
  password = document.getElementById('password').value;
  comfirmPassword = document.getElementById('confirm_password').value;
- let id;
-     console.log('goi ham check')
-// if (name.trim()==='' || username.trim()==='' || email.trim()=== '' || password.trim()===''|| comfirmPassword.trim()===''){
-// document.getElementById('validate_name').innerHTML=`<label style="color: red"> the name is requited! please try again</label>`
+ username = document.getElementById('username').value;
+     for (let i = 0; i < listUsers.length ; i++) {
+         if (username===listUsers[i].username){
+         alert('lets go')
+         }else{
+             alert('input again')
+         }
+     }
+     }
+
+if (name.trim()==='' || username.trim()==='' || email.trim()=== '' || password.trim()===''|| comfirmPassword.trim()===''){
+document.getElementById('validate_name').innerHTML=`<label style="color: red"> the name is requited! please try again</label>`
 
      if (comfirmPassword!=password){
          console.log('vao if khong')
