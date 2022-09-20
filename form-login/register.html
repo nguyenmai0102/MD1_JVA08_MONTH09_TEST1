@@ -60,7 +60,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input oninput="checkValidate()" type="password" id="password" class="form-control" />
+                                            <input oninput="checkValidate()" type="password" id="password" class="form-control"/>
                                             <label id="validate_password" class="form-label" >Password</label>
                                         </div>
                                     </div>
@@ -68,13 +68,13 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input oninput="checkValidate()" type="password" id="confirm_password" class="form-control" />
+                                            <input oninput="checkValidate()" type="password" id="confirm_password" class="form-control"/>
                                             <label id="validate_confirm" class="form-label">Repeat your password</label>
                                         </div>
                                     </div>
 
                                     <div class="form-check d-flex justify-content-center mb-5">
-                                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                                        <input class="form-check-input me-2" type="checkbox"  id="form2Example3c"/>
                                         <label class="form-check-label">
                                             I agree all statements in <a href="#!">Terms of service</a>
                                         </label>
@@ -115,7 +115,7 @@
  comfirmPassword = document.getElementById('confirm_password').value;
  username = document.getElementById('username').value;
      for (let i = 0; i < listUsers.length ; i++) {
-         if (username===listUsers[i].username){
+         if (username==listUsers[i].username){
          alert('lets go')
          }else{
              alert('input again')
