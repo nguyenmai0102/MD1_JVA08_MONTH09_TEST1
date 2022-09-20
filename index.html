@@ -32,7 +32,7 @@
 <!--start narba-->
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,10 +47,9 @@
         <li class="nav-item">
           <a id="nameUser" class="nav-link" ></a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
+        <li class="nav-item">
+          <a id="sign out"  onclick="signOut()" class="nav-link active" aria-current="page" href="/form-login/register.html">sign out</a>
+        </li>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -403,7 +402,10 @@ function showListSearch(){
   })
 }
 
-
+function  signOut (){
+    window.localStorage.removeItem('name_key');
+    window.location.reload();
+}
 
 
 
