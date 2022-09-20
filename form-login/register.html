@@ -114,7 +114,7 @@
  password = document.getElementById('password').value;
  comfirmPassword = document.getElementById('confirm_password').value;
  username = document.getElementById('username').value;
-     for (let i = 0; i < listUsers.length ; i++) {
+     for (let i = 0; i < listUsers.length; i++) {
          if (username==listUsers[i].username){
          alert('lets go')
          }else{
@@ -125,8 +125,8 @@
 
      if (name.trim()==='' || username.trim()==='' || email.trim()=== '' || password.trim()===''|| comfirmPassword.trim()===''){
          document.getElementById('validate_name').innerHTML=`<label style="color: red"> the name is requited! please try again</label>`
-
-         if (comfirmPassword!=password){
+         console.log(document.getElementById('validate_name').innerHTML)
+         if (comfirmPassword!==password){
              console.log('vao if khong')
              document.getElementById('validate_confirm').innerHTML= `<label style="color: red"> the password not match!</label>`
          }else{
@@ -145,11 +145,12 @@
     if (listUsers==null){
         listUsers=[]
         id=1
+        console.log('>>>>>>>>>>>>>><<<<<<<<<<<<', id)
     }else {
         listUsers = JSON.parse(window.localStorage.getItem('list_user'))
         id = listUsers[listUsers.length-1].id+1
     }
-    let user = new Users(id,name, username, email, password, );
+    let user = new Users(id, name, username, email, password,);
     listUsers.push(user);
     window.localStorage.setItem('list_user', JSON.stringify(listUsers))
 
