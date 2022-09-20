@@ -117,8 +117,8 @@
           <th>NAME</th>
           <th>ADDRESS</th>
           <th>AGE</th>
-          <th>EDIT</th>
-          <th>DELETE</th>
+          <th class="td_button">EDIT</th>
+          <th class="td_button">DELETE</th>
         </tr>
         <tbody id="drawTable">
 
@@ -145,6 +145,12 @@
   studentList.push(student1, student2, student3,student4, student5)
   console.log('------------------', studentList);
 
+
+  let nameKey = JSON.parse(localStorage.getItem('name_key'))
+  console.log('>>>>>>>>>>>>>>>>>>>', nameKey)
+
+
+
   function showListStudent(){
     let drawTable = ' ';
     let classColor= ' ';
@@ -159,8 +165,8 @@
                          <td>${studentList[i].name}</td>
                          <td>${studentList[i].address}</td>
                          <td>${studentList[i].age}</td>
-                         <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="${studentList[i].id}"><i class="bi bi-wrench-adjustable"></i></button></td>
-                         <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-whatever="${studentList[i].id}">delete</button></td>
+                         <td class="td_button"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="${studentList[i].id}"><i class="bi bi-wrench-adjustable"></i></button></td>
+                         <td class="td_button"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-whatever="${studentList[i].id}">delete</button></td>
                         </tr>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -239,6 +245,16 @@
       modal.find('.modal-title').text('Update Student: ' + recipient)
       modal.find('.modal-body input').val(recipient)
     })
+    console.log('drawTable', drawTable)
+    if (nameKey=== null){
+      // document.getElementById('edit_id').style.display='none'
+      // document.getElementById('delete_id').style.display='none'
+    let td_button = document.getElementsByClassName('td_button');
+      for (let i = 0; i < td_button.length; i++) {
+        td_button[i].style.display = 'none'
+      }
+    }
+
   }
   showListStudent()
 
@@ -261,25 +277,31 @@
 
 
   function updateStudent(){
-    let editName = document.getElementById('edit_name').value;
-    let editAddress = document.getElementById('edit_address').value;
-    let editAge = document.getElementById('edit_age').value;
-    for (let i = 0; i < studentList.length ; i++) {
-      if (studentList[i].getId()==idUpdate){
-        studentList[i].setName(editName);
-        studentList[i].setAddress(editAddress);
-        studentList[i].setAge(editAge);
+
+      let editName = document.getElementById('edit_name').value;
+      let editAddress = document.getElementById('edit_address').value;
+      let editAge = document.getElementById('edit_age').value;
+      for (let i = 0; i < studentList.length ; i++) {
+        if (studentList[i].getId()==idUpdate){
+          studentList[i].setName(editName);
+          studentList[i].setAddress(editAddress);
+          studentList[i].setAge(editAge);
+        }
       }
-    }
-    showListStudent()
+      showListStudent()
+
   }
   function deleteStudent(){
-    for (let i = 0; i < studentList.length ; i++) {
-  if (studentList[i].getId()==idDelete){
-    studentList.splice(i,1)
-  }
-    }
-    showListStudent();
+    // lay key trong local storage ra
+    // kiem tra.
+
+      for (let i = 0; i < studentList.length ; i++) {
+        if (studentList[i].getId()==idDelete){
+          studentList.splice(i,1)
+        }
+      }
+      showListStudent();
+
   }
 
   let searchStudentList = [];

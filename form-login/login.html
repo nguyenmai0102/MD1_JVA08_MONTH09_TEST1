@@ -106,6 +106,7 @@
 
     if (username===listUser[i].username && password===listUser[i].password){
       console.log('===========.....', listUser[i].name)
+      // luu tru du lieu vao trong local storage
       window.localStorage.setItem('name_key', listUser[i].name);
       console.log('====================',listUser[i].name)
       window.location.href='/'
@@ -113,6 +114,8 @@
     }
     }
   }
+
+
 </script>
 </body>
 </html>

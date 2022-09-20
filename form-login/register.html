@@ -120,19 +120,22 @@
          }else{
              alert('input again')
          }
-     }
+
      }
 
-if (name.trim()==='' || username.trim()==='' || email.trim()=== '' || password.trim()===''|| comfirmPassword.trim()===''){
-document.getElementById('validate_name').innerHTML=`<label style="color: red"> the name is requited! please try again</label>`
+     if (name.trim()==='' || username.trim()==='' || email.trim()=== '' || password.trim()===''|| comfirmPassword.trim()===''){
+         document.getElementById('validate_name').innerHTML=`<label style="color: red"> the name is requited! please try again</label>`
 
-     if (comfirmPassword!=password){
-         console.log('vao if khong')
-         document.getElementById('validate_confirm').innerHTML= `<label style="color: red"> the password not match!</label>`
-        }else{
-         document.getElementById('validate_confirm').innerHTML= `<label style="color: #6c6cd5"> okey!</label>`
+         if (comfirmPassword!=password){
+             console.log('vao if khong')
+             document.getElementById('validate_confirm').innerHTML= `<label style="color: red"> the password not match!</label>`
+         }else{
+             document.getElementById('validate_confirm').innerHTML= `<label style="color: #6c6cd5"> okey!</label>`
+         }
      }
+
  }
+
 
  function register(){
 
@@ -141,7 +144,6 @@ document.getElementById('validate_name').innerHTML=`<label style="color: red"> t
      let id;
     if (listUsers==null){
         listUsers=[]
-
         id=1
     }else {
         listUsers = JSON.parse(window.localStorage.getItem('list_user'))
