@@ -99,11 +99,14 @@
     let listUser = JSON.parse(localStorage.getItem('list_user'))
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
+    console.log('username')
     for (let i = 0; i < listUser.length; i++) {
     if (username===listUser[i].username && password===listUser[i].password){
+      console.log('===========.....', listUser[i].name)
       window.localStorage.setItem('name_key', listUser[i].name);
-      console.log(listUser[i].name)
-      window.location.href='../codedao.html'
+      console.log('====================',listUser[i].name)
+      window.location.href='/'
+
     }
     }
   }
