@@ -114,7 +114,7 @@
  comfirmPassword = document.getElementById('confirm_password').value;
  username = document.getElementById('username').value;
      for (let i = 0; i < listUsers.length; i++) {
-         if (username==listUsers[i].username){
+         if (username!==listUsers[i].username){
          alert('lets go')
          }else{
              alert('input again')
